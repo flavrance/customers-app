@@ -15,13 +15,13 @@ Aplicação fullstack para cadastro e gestão de clientes, pronta para produçã
 ### Arquitetura Visual (Diagramas C4)
 
 **Nível 1: Contexto do Sistema**
-![Diagrama de Contexto](out/diagrams/c4-context.png)
+![Diagrama de Contexto](out/diagrams/C4_Context_Diagram.png)
 
 **Nível 2: Contêineres**
 ![Diagrama de Contêineres](out/diagrams/c4-container.png)
 
 **Nível 3: Componentes do Backend**
-![Diagrama de Componentes do Backend](out/diagrams/c4-components-backend.png)
+![Diagrama de Componentes do Backend](out/diagrams/C4_Components_Diagram_Backend.png.png)
 
 
 
