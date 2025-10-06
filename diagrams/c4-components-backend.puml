@@ -1,0 +1,21 @@
+@startuml C4_Components_Diagram_Backend
+' C4-PlantUML Library
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title Diagrama de Componentes para o Backend API
+
+Container_Boundary(backend, "Backend API (NestJS)") {
+    Component(controller, "ClientsController", "NestJS Controller", "Expõe os endpoints da API REST para o CRUD de clientes.")
+    Component(service, "ClientsService", "NestJS Service", "Contém a lógica de negócio para o gerenciamento de clientes.")
+    Component(repository, "ClientsRepository", "TypeORM Repository", "Abstrai o acesso aos dados da entidade Client no banco de dados.")
+    Component(entity, "ClientEntity", "TypeORM Entity", "Mapeia a tabela de clientes no banco de dados.")
+    Component(dto, "CreateClientDto", "Data Transfer Object", "Define a estrutura de dados para criar e atualizar clientes.")
+    Component(validation, "ValidationPipe", "NestJS Pipe", "Realiza a validação automática dos DTOs nas requisições.")
+}
+
+Rel(controller, service, "Usa", "Injeção de Dependência")
+Rel(service, repository, "Usa para operações de", "CRUD")
+Rel(repository, entity, "Mapeia para/de")
+Rel(controller, dto, "Usa para validar a", "Entrada de dados")
+Rel(controller, validation, "É interceptado por", "Validação global")
+@enduml

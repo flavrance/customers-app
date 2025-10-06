@@ -1,0 +1,21 @@
+@startuml
+' C4-PlantUML Library for better diagram structure
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title Diagrama de Contêineres para o Sistema de Gestão de Clientes
+
+System_Boundary(aws, "AWS Cloud") {
+    ' Contêineres definidos usando a sintaxe C4-PlantUML sem ícones específicos da AWS.
+    ' O campo de tecnologia é usado para especificar o serviço da AWS.
+    Container(frontend, "Frontend", "AWS S3", "Serve a aplicação de página única (SPA) em React/Vite.")
+    Container(apigw, "API Gateway", "AWS API Gateway", "Provê um ponto de entrada seguro para a API.")
+    Container(backend, "Backend API", "AWS ECS", "Gerencia a lógica de negócio e o acesso a dados (NestJS).")
+    ContainerDb(db, "Banco de Dados", "AWS RDS", "Armazena os dados dos clientes usando PostgreSQL.")
+    ContainerQueue(mq, "Fila de Mensagens", "AWS SQS", "Gerencia tarefas assíncronas (opcional).")
+}
+
+Rel(frontend, apigw, "Faz chamadas à API para", "HTTPS")
+Rel(apigw, backend, "Encaminha requisições para", "HTTPS")
+Rel(backend, db, "Lê e escreve em", "SQL")
+Rel_D(backend, mq, "Envia eventos para (opcional)", "AMQP")
+@enduml

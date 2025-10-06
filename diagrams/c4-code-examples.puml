@@ -1,0 +1,17 @@
+@startuml
+' C4-PlantUML Library
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title Diagrama de Código (Nível 4) para o CRUD de Clientes
+
+Container_Boundary(backend, "Backend API") {
+    ' Usando o elemento "Component" para representar as classes e entidades de código,
+    ' para manter a consistência com o padrão C4.
+    Component(ClientsController, "ClientsController", "NestJS Controller", "Expõe os endpoints da API REST para o CRUD de clientes.")
+    Component(CreateClientDto, "CreateClientDto", "DTO", "Objeto para validação dos dados de criação e atualização.")
+    Component(ClientEntity, "Client", "TypeORM Entity", "Entidade que representa a tabela de clientes no banco de dados.")
+}
+
+Rel(ClientsController, CreateClientDto, "Usa para validar a entrada de dados")
+Rel(ClientsController, ClientEntity, "Manipula a entidade")
+@enduml

@@ -1,0 +1,11 @@
+@startuml C4_Context_Diagram
+' C4-PlantUML Library
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title Diagrama de Contexto para o Sistema de Gestão de Clientes
+
+Person(user, "Usuário", "Pessoa que utiliza o sistema para gerenciar clientes.")
+System(customer_system, "Sistema de Gestão de Clientes", "Permite o cadastro, visualização, edição e exclusão de clientes.")
+
+Rel(user, customer_system, "Usa", "HTTPS")
+@enduml
