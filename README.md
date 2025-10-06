@@ -21,7 +21,7 @@ Aplicação fullstack para cadastro e gestão de clientes, pronta para produçã
 ![Diagrama de Contêineres](out/diagrams/c4-container.png)
 
 **Nível 3: Componentes do Backend**
-![Diagrama de Componentes do Backend](out/diagrams/C4_Components_Diagram_Backend.png.png)
+![Diagrama de Componentes do Backend](out/diagrams/C4_Components_Diagram_Backend.png)
 
 
 
